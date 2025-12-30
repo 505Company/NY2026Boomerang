@@ -101,9 +101,9 @@ document.addEventListener("DOMContentLoaded", () => {
             ctx.clearRect(0, 0, W, H);
 
             // Bright look (without dark overlay)
-            ctx.globalCompositeOperation = "lighter";
-            ctx.shadowBlur = 5;
-            ctx.shadowColor = "rgba(255,255,255,0.35)";
+            ctx.globalCompositeOperation = "source-over";
+            ctx.shadowBlur = 0;
+
 
             for (let i = pieces.length - 1; i >= 0; i--) {
                 const p = pieces[i];
@@ -157,12 +157,12 @@ document.addEventListener("DOMContentLoaded", () => {
             function mega() {
                 // Single centered burst
                 burst({
-                    count: 60,        // было сотни+ — уменьшаем
+                    count: 45,          // было много — теперь очень мало
                     originX: 0.50,
-                    originY: 0.62,
-                    power: 13,         // ниже скорость
-                    spread: Math.PI * 1.10,
-                    biasUp: 1.05
+                    originY: 0.60,
+                    power: 9,           // ниже скорость
+                    spread: Math.PI * 0.95,
+                    biasUp: 1.0
                 });
             }
 
@@ -507,7 +507,8 @@ document.addEventListener("DOMContentLoaded", () => {
             ctx.fill();
         }
 
-        ctx.globalCompositeOperation = "source-over";
+
+
 
         // экономим ресурсы: если давно не двигали и частиц нет — стоп
         const idle = performance.now() - lastMoveTs;
