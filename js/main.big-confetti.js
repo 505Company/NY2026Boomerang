@@ -102,8 +102,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Bright look (without dark overlay)
             ctx.globalCompositeOperation = "lighter";
-            ctx.shadowBlur = 11;
-            ctx.shadowColor = "rgba(255,255,255,0.65)";
+            ctx.shadowBlur = 5;
+            ctx.shadowColor = "rgba(255,255,255,0.35)";
 
             for (let i = pieces.length - 1; i >= 0; i--) {
                 const p = pieces[i];
@@ -157,7 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
             function mega() {
                 // Single centered burst
                 burst({
-                    count: 120,        // было сотни+ — уменьшаем
+                    count: 60,        // было сотни+ — уменьшаем
                     originX: 0.50,
                     originY: 0.62,
                     power: 13,         // ниже скорость
